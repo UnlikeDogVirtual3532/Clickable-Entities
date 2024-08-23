@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.*;
 import org.yaml.snakeyaml.Yaml;
 
 import create.convoy.clickable_entities.ClickableEntities;
@@ -75,7 +76,14 @@ public class ConfigManager {
         return yaml.load(inputStream);
     }
 
-    public void saveConfig() {}
+    public void saveConfig(Map<String, Object> configMap) {
+        Yaml yaml = new Yaml();
+        
+        try {
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(configFile));
+            yaml.dump(configMap, outputStreamWriter);
+        } catch (Exception e) {return;}
+    }
 
     private void copyFile(InputStream sourceFile, File writeFile) throws IOException {
         FileOutputStream outputStream = new FileOutputStream(writeFile);
