@@ -5,20 +5,31 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ClickableEntities implements ModInitializer {
-	public static final String MOD_ID = "clickable-entities";
+import create.convoy.clickable_entities.config.ConfigManager;
 
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
+import java.util.Map;
+
+public class ClickableEntities implements ModInitializer {
+	public static final String MOD_NAME = "Clickable Entities";
+	public static final String MOD_ID = "clickable-entities";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+	public static String configFileLocation = "config/clickable-entities/";
+    public static String configFileName = "ClickableEntities.yaml";
+    public static String defaultConfigFilePath = "assets/clickable-entities/default_config.yaml";
+    public static Map<String, Object> configMap;
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+		ConfigManager configManager = new ConfigManager(configFileLocation, configFileName, defaultConfigFilePath);
 
-		LOGGER.info("Hello Fabric world!");
+        try {
+            configMap = configManager.getConfig();
+        } catch (Exception e) {
+            configMap = configManager.getDefaultConfig();
+        }
+
+		
+
 	}
 }
