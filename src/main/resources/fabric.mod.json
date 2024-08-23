@@ -10,7 +10,7 @@
 	"contact": {
 		"sources": "https://github.com/UnlikeDogVirtual3532/clickable-entities-1.20.4"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/clickable-entities/icon.png",
 	"environment": "*",
 	"entrypoints": {
