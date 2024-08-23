@@ -1,0 +1,27 @@
+{
+	"schemaVersion": 1,
+	"id": "clickable-entities",
+	"version": "${version}",
+	"name": "Clickable Entities",
+	"description": "Binds commands to entities when they're clicked",
+	"authors": [
+		"virtualengi"
+	],
+	"contact": {
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/clickable-entities/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"create.convoy.clickable_entities.ClickableEntities"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": ">=1.20",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
